@@ -1,4 +1,5 @@
 // init project
+var path = require("path");
 var express = require("express");
 var app = express();
 
@@ -17,8 +18,8 @@ var viewName = "Bugs by priority";
 app.use(express.static("public"));
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get("/", function(request, response) {
-  response.sendFile("/sandbox/views/index.html");
+app.get("/", function (request, response) {
+  response.sendFile(path.join(__dirname + "../views/index.html"));
 });
 
 // Cache the records in case we get a lot of traffic.
@@ -27,7 +28,7 @@ var cacheTimeoutMs = 5 * 1000; // Cache for 5 seconds.
 var cachedResponse = null;
 var cachedResponseDate = null;
 
-app.get("/data", function(_, response) {
+app.get("/data", function (_, response) {
   if (cachedResponse && new Date() - cachedResponseDate < cacheTimeoutMs) {
     response.send(cachedResponse);
   } else {
@@ -37,12 +38,12 @@ app.get("/data", function(_, response) {
         maxRecords: 10,
         view: viewName
       })
-      .firstPage(function(error, records) {
+      .firstPage(function (error, records) {
         if (error) {
           response.send({ error: error });
         } else {
           cachedResponse = {
-            records: records.map(record => {
+            records: records.map((record) => {
               return {
                 name: record.get("Name"),
                 picture: record.get("Attachments"),
@@ -59,6 +60,6 @@ app.get("/data", function(_, response) {
 });
 
 // Listen on port 8080
-var listener = app.listen(8080, function() {
+var listener = app.listen(8080, function () {
   console.log("Listening on port " + listener.address().port);
 });
