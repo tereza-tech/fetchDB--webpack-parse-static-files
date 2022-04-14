@@ -4,8 +4,8 @@
   "description": "Display data from an Airtable base",
   "main": "src/index.js",
   "scripts": {
-    "start2": "nodemon src/index.js localhost 8080",
-    "start": "node src/child_processes/getNodejsImage.js"
+    "start": "nodemon src/index.js localhost 8080",
+    "start2": "node src/child_processes/getNodejsImage.js"
   },
   "dependencies": {
     "airtable": "0.8.1",
