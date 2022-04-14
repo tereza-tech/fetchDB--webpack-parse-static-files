@@ -9,7 +9,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "colors": "file:../colors"
-  }
+  "dependencies": {}
 }
