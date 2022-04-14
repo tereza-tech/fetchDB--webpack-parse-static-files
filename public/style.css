@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  margin: 25px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 32px;
+  color: rgb(0, 20, 130);
+  margin-bottom: 0;
+}
+
+header {
+  margin-bottom: 2em;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-card {
+  min-height: 160px;
+  width: 200px;
+
+  border: 1px solid #777;
+  border-radius: 5px;
+  box-shadow: 2px 2px 0 2px rgba(0, 0, 0, 0.2);
+  padding: 0.5em;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+.gallery-card img {
+  border-radius: 5px;
+  margin-bottom: 0.5em;
+  width: 100%;
+}
