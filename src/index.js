@@ -19,7 +19,7 @@ app.use(express.static("public"));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (request, response) {
-  response.sendFile(path.join(__dirname + "../views/index.html"));
+  response.sendFile(path.join(__dirname, "..", "views", "index.html"));
 });
 
 // Cache the records in case we get a lot of traffic.
